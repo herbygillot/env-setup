@@ -12,3 +12,6 @@ fi
 export HISTSIZE=1000000
 export HISTFILESIZE=1000000
 setopt APPEND_HISTORY HIST_IGNORE_DUPS
+
+# Enable emacs-style key shortcuts
+bindkey -e
