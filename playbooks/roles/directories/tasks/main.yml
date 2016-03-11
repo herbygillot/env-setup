@@ -1,0 +1,4 @@
+---
+- include: "env_local.yml"
+  tags:
+  - 'directories'

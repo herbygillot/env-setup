@@ -1,0 +1,5 @@
+# vi: ft=sh
+
+# Common env vars and settings
+export EDITOR=vim
+

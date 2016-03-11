@@ -1,0 +1,11 @@
+# vi: ft=sh
+
+# Secure Shell Agent
+
+# If we're in an a non-SSH interactive shell, add the SSH identity if
+# necessary.
+[[ $- == *i* ]] && (
+  if [ -z "$SSH_CONNECTION" ] && ! ( ssh-add -L > /dev/null ); then
+    ssh-add
+  fi
+)

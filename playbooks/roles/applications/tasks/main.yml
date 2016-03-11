@@ -1,0 +1,9 @@
+---
+- include:  debian.yml
+  become:   yes
+  when: (
+            (ansible_pkg_mgr is defined) and
+            (ansible_pkg_mgr == "apt")
+        )
+  tags:
+  - 'applications'

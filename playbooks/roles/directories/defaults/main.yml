@@ -1,0 +1,7 @@
+---
+# environment local prefix:
+#     path will have the standard bin,include,lib hier, but is ownable
+#     and managed by the user
+#
+##    NOTE: /opt/local is owned by MacPorts on Mac OS X systems.
+env_local_dir:    "/opt/local"

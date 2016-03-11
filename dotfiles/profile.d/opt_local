@@ -1,0 +1,23 @@
+# vi: ft=sh
+
+# User local hier
+
+# If /opt/local is available, ensure that relevant environment
+# variables point to its contents.
+
+OPT_LOCAL_DIR="/opt/local"
+
+if [ -d "$OPT_LOCAL_DIR" ]; then
+    OPT_LOCAL_INCLUDE_DIR="$OPT_LOCAL_DIR/include"
+    OPT_LOCAL_LIB_DIR="$OPT_LOCAL_DIR/lib"
+
+    # Ensure that any headers or libs installed in /opt/local will be
+    # searched by gcc, clang, et. al during compilation:
+    export CFLAGS="$CFLAGS -I$OPT_LOCAL_INCLUDE_DIR"
+    export CPPFLAGS="$CPPFLAGS -I$OPT_LOCAL_INCLUDE_DIR"
+    export LDFLAGS="$LDFLAGS -L$OPT_LOCAL_LIB_DIR"
+
+    export C_INCLUDE_PATH="$C_INCLUDE_PATH:$OPT_LOCAL_INCLUDE_DIR"
+    export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:$OPT_LOCAL_INCLUDE_DIR"
+    export LIBRARY_PATH="$LIBRARY_PATH:$OPT_LOCAL_LIB_DIR"
+fi

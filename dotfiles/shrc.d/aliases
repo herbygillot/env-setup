@@ -1,0 +1,9 @@
+# vi: ft=sh
+
+# Shell aliases
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+alias to_clip="xclip -selection clipboard"

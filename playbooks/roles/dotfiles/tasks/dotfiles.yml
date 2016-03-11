@@ -1,0 +1,72 @@
+---
+- fail: msg='role_path is not defined'
+  when: (role_path is not defined)
+
+
+- name: "Find all available dotfiles"
+  find:
+      paths:
+      - '{{ role_path }}/files'
+      recurse:    'no'
+      file_type:  'file'
+  register: _dotfiles
+  
+
+- name: "Find all available dotfiles"
+  find:
+      paths:
+      - '{{ role_path }}/files'
+      recurse:    'no'
+      file_type:  'directory'
+  register: _dotdirs
+
+
+- name: "Install links to dotfiles"
+  file:
+      src:    '{{ item.path }}'
+      dest:   '{{ lookup("env", "HOME") }}/.{{ item.path | basename }}'
+      state:  'link'
+      force:  'yes'
+  with_items: '{{ _dotfiles.files }}'
+  when: (
+      (dotfiles_state is defined) and
+      (dotfiles_state == 'present')
+    )
+
+
+- name: "Install links to dotdirs"
+  file:
+      src:    '{{ item.path }}'
+      dest:   '{{ lookup("env", "HOME") }}/.{{ item.path | basename }}'
+      state:  'link'
+      force:  'yes'
+  with_items: '{{ _dotdirs.files }}'
+  when: (
+      (dotfiles_state is defined) and
+      (dotfiles_state == 'present')
+    )
+
+- name: "Remove links to dotfiles"
+  file:
+      dest:   '{{ lookup("env", "HOME") }}/.{{ item.path | basename }}'
+      state:  'absent'
+      force:  'yes'
+  with_items: '{{ _dotfiles.files }}'
+  when: (
+      (dotfiles_state is not defined) or
+      (dotfiles_state != 'present')
+    )
+
+
+- name: "Remove links to dotdirs"
+  file:
+      dest:   '{{ lookup("env", "HOME") }}/.{{ item.path | basename }}'
+      state:  'absent'
+      force:  'yes'
+  with_items: '{{ _dotdirs.files }}'
+  when: (
+      (dotfiles_state is not defined) or
+      (dotfiles_state != 'present')
+    )
+
+

@@ -1,0 +1,8 @@
+[include]
+    path = ~/.gitconfig.local
+[alias]
+    feap = fetch --all --prune
+    ld = log --decorate --graph
+[core]
+    editor = vim
+

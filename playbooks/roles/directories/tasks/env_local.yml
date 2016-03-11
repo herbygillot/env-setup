@@ -1,0 +1,17 @@
+---
+# Create an environment local directory for use with various things like
+# libraries, headers that we'd prefer not to keep in the system or /usr/local
+- name: "Create local environment directory"
+  file:
+    path:     "{{ env_local_dir }}/{{ item }}"
+    state:    'directory'
+    owner:    '{{ ansible_user_id | mandatory }}'
+  with_items:
+    - ''
+    - 'lib'
+    - 'include'
+  when: (
+      (ansible_system is defined) and
+      (ansible_system == "Linux")
+    )
+  sudo: 'yes'

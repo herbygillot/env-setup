@@ -1,0 +1,15 @@
+# vi: ft=sh
+
+# Source other profile scripts if present and executable
+if [ -d "$HOME/.profile.d" ]; then
+    for profile in "$HOME/.profile.d"/*
+    do
+        if [ -x "$profile" ]; then
+            . $profile
+        fi
+    done
+fi
+
+if [ -f "$HOME/.zshrc" ]; then
+  . "$HOME/.zshrc"
+fi

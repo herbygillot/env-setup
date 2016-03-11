@@ -1,0 +1,5 @@
+---
+- include: dotfiles.yml
+  tags:
+  - 'dotfiles'
+  when: (ansible_user_id is defined)

@@ -1,0 +1,15 @@
+---
+basic_packages_all:
+  - 'htop'
+  - 'tmux'
+
+basic_packages_debian:
+  - 'fail2ban'
+  - 'build-essential'
+  - 'i3'
+  - 'i3blocks'
+  - 'openssh-server'
+  - 'gnome-mplayer'
+  - 'redshift'
+  - 'vim-nox'
+  - 'vlc'

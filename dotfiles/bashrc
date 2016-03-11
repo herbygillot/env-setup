@@ -1,0 +1,18 @@
+# source all executable files in .shrc.d
+if [ -d "$HOME/.shrc.d" ]; then
+    for rcfile in "$HOME/.shrc.d"/*
+    do
+        if [ -x "$rcfile" ]; then
+            . $rcfile
+        fi
+    done
+fi
+
+# Append to command history
+export HISTSIZE=1000000
+export HISTFILESIZE=1000000
+export HISTCONTROL='ignoredups'
+shopt -s histappend
+
+# Enable path correction for 'cd' commands
+shopt -s cdspell
