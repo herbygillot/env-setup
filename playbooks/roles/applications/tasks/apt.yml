@@ -1,0 +1,24 @@
+---
+- name: "Update apt cache"
+  apt:  update_cache=yes
+
+- name: "Install basic software"
+  apt:
+      name:   '{{ item }}'
+      state:  'latest'
+  with_items: '{{ application_packages.all }}'
+
+
+- name: "Install packages on Debian"
+  apt:
+      name:   '{{ item }}'
+      state:  'latest'
+  with_items: '{{ application_packages.debian }}'
+
+
+- name: "Install packages on Ubuntu"
+  apt:
+      name:   '{{ item }}'
+      state:  'latest'
+  with_items: '{{ application_packages.ubuntu }}'
+  when: '{{ ansible_distribution == "Ubuntu" }}'
