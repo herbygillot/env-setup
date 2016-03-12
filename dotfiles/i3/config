@@ -168,3 +168,6 @@ bindsym $mod+p exec i3lock -d -I 3
 bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
+
+# open file browser
+bindsym $mod+o exec "nautilus --no-desktop $HOME"
