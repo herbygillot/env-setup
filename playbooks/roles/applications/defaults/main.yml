@@ -15,6 +15,7 @@ application_packages:
   - 'jq'
   - 'i3'
   - 'i3blocks'
+  - 'rofi'
   - 'gnome-mplayer'
   - 'redshift'
 
