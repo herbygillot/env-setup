@@ -1,0 +1,13 @@
+# vi: ft=sh
+
+# Home-local Python-related path + environment
+
+if [ -d "$HOME/.local" ]; then
+
+    for _pypath in "$HOME/.local/python*"
+    do
+        PYTHONPATH="$PYTHONPATH:$_pypath/site-packages"
+    done
+    export PYTHONPATH
+
+fi

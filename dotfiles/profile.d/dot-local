@@ -1,0 +1,8 @@
+# vi: ft=sh
+
+# Dot-local path
+
+if [ -d "$HOME/.local/bin" ]; then
+    PATH="$PATH:$HOME/.local/bin"
+    export PATH
+fi
