@@ -1,0 +1,16 @@
+# vi: ft=sh
+
+# User local hier
+
+HASHITOOLS="terraform"
+
+_ROOT="/opt"
+
+for tool in $HASHITOOLS
+do
+    TOOL_PATH="${_ROOT}/${tool}"
+
+    if [ -d "${_ROOT}/${tool}" ]; then
+        export PATH="${PATH}:${TOOL_PATH}"
+    fi
+done
