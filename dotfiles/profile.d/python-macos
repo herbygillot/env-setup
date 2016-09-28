@@ -1,0 +1,15 @@
+# vi: ft=sh
+
+# Add macOS Python paths to PATH
+
+_PYTHON_VERSIONS_ROOT="/Library/Frameworks/Python.framework/Versions/"
+
+if [ -d "${_PYTHON_VERSIONS_ROOT}" ]; then
+    for version in "${_PYTHON_VERSIONS_ROOT}"/*
+    do
+        _ver_bin="${version}/bin"
+        if [ -d "${_ver_bin}" ]; then
+            export PATH="${PATH}:${_ver_bin}"
+        fi
+    done
+fi
