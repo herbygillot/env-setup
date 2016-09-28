@@ -5,4 +5,5 @@
     ld = log --decorate --graph
 [core]
     editor = vim
-
+[commit]
+    gpgsign = true
