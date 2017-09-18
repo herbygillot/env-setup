@@ -31,7 +31,7 @@ _add_tag() {
 install_prereqs() {
   # Install Ansible and other pre-requisites
   if ( which apt-get > /dev/null ); then
-    sudo apt-get install python-pip || _abort
+    sudo apt-get install python-pip python-dev || _abort
     sudo pip install ansible || _abort
   fi
 }
